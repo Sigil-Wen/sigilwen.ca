@@ -3,13 +3,22 @@ import { extname, join } from "node:path";
 
 const root = process.cwd();
 const output = join(root, "dist", "server");
-const sourceFiles = readdirSync(root).filter((file) =>
-  file.endsWith(".html") || file === "styles.css" || file === "og.png"
-);
+const sourceFiles = [
+  ...readdirSync(root).filter((file) =>
+    file.endsWith(".html") || file === "styles.css" || file === "site-navigation.js" || file === "og.png"
+  ),
+  "airchat/index.html",
+  "angel/index.html",
+  "conway/index.html",
+  "essays/index.html",
+  "extraordinary/index.html",
+  "projects/index.html",
+];
 
 const mimeTypes = {
   ".css": "text/css; charset=utf-8",
   ".html": "text/html; charset=utf-8",
+  ".js": "text/javascript; charset=utf-8",
   ".png": "image/png",
 };
 
@@ -30,6 +39,20 @@ const assets = Object.fromEntries(
 );
 
 assets["/"] = assets["/index.html"];
+assets["/airchat"] = assets["/airchat/index.html"];
+assets["/airchat/"] = assets["/airchat/index.html"];
+assets["/angel"] = assets["/angel/index.html"];
+assets["/angel/"] = assets["/angel/index.html"];
+assets["/conway"] = assets["/conway/index.html"];
+assets["/conway/"] = assets["/conway/index.html"];
+assets["/essays"] = assets["/essays/index.html"];
+assets["/essays/"] = assets["/essays/index.html"];
+assets["/extraordinary"] = assets["/extraordinary/index.html"];
+assets["/extraordinary/"] = assets["/extraordinary/index.html"];
+assets["/projects"] = assets["/projects/index.html"];
+assets["/projects/"] = assets["/projects/index.html"];
+assets["/hacking"] = assets["/projects/index.html"];
+assets["/hacking/"] = assets["/projects/index.html"];
 
 const worker = `const assets = ${JSON.stringify(assets)};
 
