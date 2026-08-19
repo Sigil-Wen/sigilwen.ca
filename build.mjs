@@ -13,6 +13,7 @@ const sourceFiles = [
   "essays/index.html",
   "extraordinary/index.html",
   "projects/index.html",
+  "videos/index.html",
 ];
 
 const mimeTypes = {
@@ -51,6 +52,8 @@ assets["/extraordinary"] = assets["/extraordinary/index.html"];
 assets["/extraordinary/"] = assets["/extraordinary/index.html"];
 assets["/projects"] = assets["/projects/index.html"];
 assets["/projects/"] = assets["/projects/index.html"];
+assets["/videos"] = assets["/videos/index.html"];
+assets["/videos/"] = assets["/videos/index.html"];
 assets["/hacking"] = assets["/projects/index.html"];
 assets["/hacking/"] = assets["/projects/index.html"];
 
