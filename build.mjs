@@ -12,6 +12,7 @@ const sourceFiles = [
   "conway/index.html",
   "essays/index.html",
   "extraordinary/index.html",
+  "favorites/index.html",
   "projects/index.html",
   "videos/index.html",
 ];
@@ -50,6 +51,8 @@ assets["/essays"] = assets["/essays/index.html"];
 assets["/essays/"] = assets["/essays/index.html"];
 assets["/extraordinary"] = assets["/extraordinary/index.html"];
 assets["/extraordinary/"] = assets["/extraordinary/index.html"];
+assets["/favorites"] = assets["/favorites/index.html"];
+assets["/favorites/"] = assets["/favorites/index.html"];
 assets["/projects"] = assets["/projects/index.html"];
 assets["/projects/"] = assets["/projects/index.html"];
 assets["/videos"] = assets["/videos/index.html"];

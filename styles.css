@@ -248,6 +248,25 @@ blockquote {
   flex: 0 0 auto;
 }
 
+.favorites-list {
+  padding: 0;
+  list-style: none;
+}
+
+.favorites-list li {
+  padding: 0.85rem 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.favorites-list li:first-child {
+  border-top: 1px solid #ddd;
+}
+
+.favorites-list p {
+  margin: 0.2rem 0 0;
+  color: #666;
+}
+
 ul,
 ol {
   padding-left: 1.4rem;

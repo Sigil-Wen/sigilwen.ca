@@ -5,6 +5,7 @@ const primaryLinks = [
   { id: "airchat", href: "/airchat", label: "Airchat" },
   { id: "projects", href: "/projects", label: "Projects" },
   { id: "essays", href: "/essays", label: "Essays" },
+  { id: "favorites", href: "/favorites", label: "Favorites" },
   { id: "videos", href: "/videos", label: "Videos" },
   { id: "angel", href: "/angel", label: "Angel Investing" },
 ];
