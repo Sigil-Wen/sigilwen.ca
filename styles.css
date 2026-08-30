@@ -94,6 +94,41 @@ site-navigation {
   color: #222;
 }
 
+.sidebar a[href="/angel"] {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.sidebar a[href="/angel"]::after {
+  content: "✦";
+  color: #aa8a3a;
+  font-size: 0.65em;
+  line-height: 1;
+  opacity: 0.38;
+  animation: angel-sparkle 5s ease-in-out infinite;
+}
+
+@keyframes angel-sparkle {
+  0%, 82%, 100% {
+    opacity: 0.38;
+    text-shadow: none;
+    transform: scale(0.9);
+  }
+  90% {
+    opacity: 1;
+    text-shadow: 0 0 7px rgba(202, 157, 47, 0.75);
+    transform: scale(1.12);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sidebar a[href="/angel"],
+  .sidebar a[href="/angel"]::after {
+    animation: none;
+  }
+}
+
 .home main,
 .home footer {
   grid-column: 2;
