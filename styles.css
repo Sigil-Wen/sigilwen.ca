@@ -37,6 +37,21 @@ site-navigation {
   margin-bottom: 2.5rem;
 }
 
+.home-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 144px;
+  gap: 32px;
+  align-items: center;
+}
+
+.home-profile-photo {
+  display: block;
+  width: 144px;
+  height: 144px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
 .sidebar {
   position: sticky;
   top: 56px;
@@ -384,6 +399,17 @@ footer {
   body {
     width: min(100% - 28px, 720px);
     padding-top: 32px;
+  }
+
+  .home-header {
+    grid-template-columns: minmax(0, 1fr) 96px;
+    gap: 16px;
+  }
+
+  .home-profile-photo {
+    width: 96px;
+    height: 96px;
+    border-radius: 4px;
   }
 }
 

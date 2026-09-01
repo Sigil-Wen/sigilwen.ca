@@ -5,7 +5,7 @@ const root = process.cwd();
 const output = join(root, "dist", "server");
 const sourceFiles = [
   ...readdirSync(root).filter((file) =>
-    file.endsWith(".html") || file === "styles.css" || file === "site-navigation.js" || file === "og.png"
+    file.endsWith(".html") || file.endsWith(".png") || file === "styles.css" || file === "site-navigation.js"
   ),
   "airchat/index.html",
   "angel/index.html",
