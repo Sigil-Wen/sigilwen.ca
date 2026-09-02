@@ -5,7 +5,7 @@ const root = process.cwd();
 const output = join(root, "dist", "server");
 const sourceFiles = [
   ...readdirSync(root).filter((file) =>
-    file.endsWith(".html") || file.endsWith(".png") || file === "styles.css" || file === "site-navigation.js"
+    file.endsWith(".html") || file.endsWith(".jpg") || file.endsWith(".png") || file === "styles.css" || file === "site-navigation.js"
   ),
   "airchat/index.html",
   "angel/index.html",
@@ -20,6 +20,7 @@ const sourceFiles = [
 const mimeTypes = {
   ".css": "text/css; charset=utf-8",
   ".html": "text/html; charset=utf-8",
+  ".jpg": "image/jpeg",
   ".js": "text/javascript; charset=utf-8",
   ".png": "image/png",
 };
@@ -27,7 +28,7 @@ const mimeTypes = {
 const assets = Object.fromEntries(
   sourceFiles.map((file) => {
     const extension = extname(file);
-    const binary = extension === ".png";
+    const binary = extension === ".jpg" || extension === ".png";
     const body = readFileSync(join(root, file), binary ? undefined : "utf8");
     return [
       `/${file}`,
