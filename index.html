@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Sigil Wen is an AI researcher, engineer, founder, and angel investor.">
   <link rel="canonical" href="https://sigilwen.ca/">
-  <link rel="stylesheet" href="/styles.css?v=6">
-  <script src="/site-navigation.js" defer></script>
+  <link rel="stylesheet" href="/styles.css?v=12">
+  <script src="/site-navigation.js?v=2" defer></script>
+  <script src="/github-activity.js" defer></script>
 
   <meta property="og:title" content="Sigil Wen">
   <meta property="og:description" content="AI researcher, engineer, founder, and angel investor.">
@@ -33,7 +34,9 @@
         <h1>Sigil Wen</h1>
         <p>AI researcher, engineer, founder, and angel investor.</p>
       </div>
-      <img class="home-profile-photo" src="/sigil-wen.png" alt="Portrait of Sigil Wen" width="512" height="512" decoding="async">
+      <a class="home-profile-link" href="/photos" aria-label="View photos of Sigil Wen">
+        <img class="home-profile-photo" src="/sigil-wen.png" alt="Portrait of Sigil Wen" width="512" height="512" decoding="async">
+      </a>
     </header>
 
     <section id="about">
@@ -42,7 +45,7 @@
       <p>Instead of going to college, I spent my formative years hacking at the heart of AI.</p>
       <div class="bio-story-shell bio-story-shell-prose">
         <div class="bio-story bio-story-prose" data-bio-story>
-          <button class="bio-story-trigger bio-story-prose-trigger" type="button" aria-expanded="false" aria-controls="midjourney-story-card">At 17, I flew from Toronto to SF and slept out of the 44 Montgomery WeWork until David Holz took me in. He showed me the image models he was training and invited me to a Discord server with 20 people. That became Midjourney, which now has 20 million members.</button>
+          <button class="bio-story-trigger bio-story-prose-trigger" type="button" aria-expanded="false" aria-controls="midjourney-story-card">At 17, I flew from Toronto to SF and slept out of the 44 Montgomery WeWork. I met David Holz who showed me the image models he was training and invited me to a Discord server with 20 people. That became Midjourney, which now has 20 million members.</button>
           <figure class="bio-story-card bio-story-card-caption-side" id="midjourney-story-card">
             <a class="bio-story-image" href="/midjourney-discord-2021.png" target="_blank" rel="noopener noreferrer" aria-label="Open the Midjourney Discord screenshot at full size">
               <img src="/midjourney-discord-2021.png" alt="Discord conversation from August 2021 in which David Holz shows Sigil Wen an early AI-generated cyberpunk wizard image" width="1040" height="1400" loading="lazy" decoding="async">
@@ -63,7 +66,7 @@
       <p>I’m interested in crypto, distributed systems, AI, economics, and incentives. I spend my time reading, programming, and trying to think for myself. I <strong>love</strong> working <strong>very</strong> hard.</p>
       <p>I believe AI will allow the most capable individuals to execute 1,000× faster—fast enough to outpace entire companies. My goal is to master this new age of infinite leverage and use it to create <a href="/greatwork.html">great work</a>.</p>
       <p>To me, truly loving yourself means recognizing that you’re capable of making a significant positive dent in the universe.</p>
-      <p>I’m the author of <span class="inline-preview" data-inline-preview><a class="inline-preview-trigger" href="https://web4.ai" aria-expanded="false" aria-controls="web4-preview">Web 4.0</a><span class="inline-preview-card inline-preview-card-wide" id="web4-preview"><a class="inline-preview-image" href="https://web4.ai" aria-label="Read Web 4.0"><img src="/web4-preview.jpg" alt="Web 4.0: Intelligence is abundant. Context is scarce." width="1200" height="630" loading="lazy" decoding="async"></a></span></span>, which reached <a href="https://x.com/0xSigil/status/2023877649475731671">10 million views</a> in 48 hours. I’m now building <span class="inline-preview" data-inline-preview><a class="inline-preview-trigger" href="/conway" aria-expanded="false" aria-controls="conway-preview">Conway Research</a><span class="inline-preview-card inline-preview-card-wide" id="conway-preview"><a class="inline-preview-image" href="/conway" aria-label="Read about Conway"><img src="/conway-preview.jpg" alt="Conway: infrastructure for self-improving, self-replicating autonomous AI" width="1280" height="720" loading="lazy" decoding="async"></a></span></span>, an AI lab focused on Pareto frontier models that run quickly on device. Our first product is <a href="https://underdog.ai">Underdog</a>.</p>
+      <p>I’m the author of <span class="inline-preview" data-inline-preview><a class="inline-preview-trigger" href="https://web4.ai" aria-expanded="false" aria-controls="web4-preview">Web 4.0</a><span class="inline-preview-card inline-preview-card-wide" id="web4-preview"><a class="inline-preview-image" href="https://web4.ai" aria-label="Read Web 4.0"><img src="/web4-preview.jpg" alt="Web 4.0: Intelligence is abundant. Context is scarce." width="1200" height="630" loading="lazy" decoding="async"></a></span></span>, which reached <a href="https://x.com/0xSigil/status/2023877649475731671">10 million views</a> in 48 hours. I’m now building <span class="inline-preview" data-inline-preview><a class="inline-preview-trigger" href="/conway" aria-expanded="false" aria-controls="conway-preview">Conway Research</a><span class="inline-preview-card inline-preview-card-wide" id="conway-preview"><a class="inline-preview-image" href="/conway" aria-label="Read about Conway"><img src="/conway-preview.png" alt="Conway — Intelligence you can own" width="1731" height="909" loading="lazy" decoding="async"></a></span></span>, an AI lab focused on Pareto frontier models that run quickly on device. Our first product is <a href="https://underdog.ai">Underdog</a>.</p>
     </section>
 
     <section>
@@ -81,9 +84,12 @@
       <p>I write $25K–$250K checks and love being the first believer in technical founders. I invested early in Etched, Capable, Friend, Kerna Labs, V12, and Owsar, across a portfolio of 20+ companies. Those early bets have performed well. My Spearhead fund is up 10×+ in three years.</p>
     </section>
 
-    <section>
+    <section id="projects">
       <h2><a href="/projects">Projects</a></h2>
       <p>I like building experiments, including GPT-2 running locally on an Apple Watch and Stable Diffusion inside Minecraft.</p>
+      <github-activity>
+        <p><a href="https://github.com/Sigil-Wen">See my projects and activity on GitHub.</a></p>
+      </github-activity>
     </section>
 
     <section>
@@ -93,13 +99,18 @@
 
     <section>
       <h2><a href="/videos">Videos</a></h2>
-      <p>I’ve made videos with millions of views across the internet, covering everything from building a rock-climbing wall in my garage to earning an O-1 visa and interviewing a high-school dropout who became an OpenAI researcher.</p>
+      <p class="video-preview-paragraph">I’ve made videos with millions of views across the internet, covering everything from building a rock-climbing wall in my garage to earning an <span class="inline-preview inline-preview-align-right" data-inline-preview><a class="inline-preview-trigger" href="https://www.youtube.com/watch?v=1pu_j2V0GJs" target="_blank" rel="noopener noreferrer" aria-expanded="false" aria-controls="o1-visa-video-preview">O-1 visa</a><span class="inline-preview-card" id="o1-visa-video-preview"><a class="inline-preview-image" href="https://www.youtube.com/watch?v=1pu_j2V0GJs" target="_blank" rel="noopener noreferrer" aria-label="Watch the O-1 visa guide on YouTube"><img src="/o1-visa-youtube.jpg" alt="YouTube thumbnail for How I Earned My Way Into the US — O-1 Visa Guide" width="1280" height="720" loading="lazy" decoding="async"><span class="video-preview-caption"><span>YouTube</span><span title="View count checked October 2, 2026">72,625 views</span><time datetime="2024-01-12">Jan 12, 2024</time></span></a></span></span> and <span class="inline-preview inline-preview-align-right" data-inline-preview><a class="inline-preview-trigger" href="https://www.youtube.com/watch?v=wVpaP6IyyvY" target="_blank" rel="noopener noreferrer" aria-expanded="false" aria-controls="ap-calculus-video-preview">How I learned AP Calculus BC in 5 days and got a 5</a><span class="inline-preview-card" id="ap-calculus-video-preview"><a class="inline-preview-image" href="https://www.youtube.com/watch?v=wVpaP6IyyvY" target="_blank" rel="noopener noreferrer" aria-label="Watch How I Learned AP Calculus BC in 5 Days and Got a 5 on YouTube"><img src="/ap-calculus-youtube.jpg" alt="YouTube thumbnail for How I Learned AP Calculus BC in 5 Days and Got a 5" width="1280" height="720" loading="lazy" decoding="async"><span class="video-preview-caption"><span>YouTube</span><span title="View count checked October 2, 2026">420,325 views</span><time datetime="2020-07-17">Jul 17, 2020</time></span></a></span></span>.</p>
+    </section>
+
+    <section id="photos">
+      <h2><a href="/photos">Photos</a></h2>
+      <p>i did a photoshoot one day and here are photos i liked</p>
     </section>
 
     <section id="origins">
       <h2>Origins</h2>
       <p>I spawned in Toronto, Canada in late 2003. I grew up with immigrant parents who worked hard to give me the opportunity to have an education. I am immensely grateful and consider myself extremely lucky.</p>
-      <p>I also believe luck is in your control : ) "how to get lucky (without getting lucky)" lol that's a topic for another day</p>
+      <p>I also believe luck is in your control : )</p>
     </section>
 
   </main>

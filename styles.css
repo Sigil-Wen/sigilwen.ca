@@ -45,6 +45,17 @@ site-navigation {
   margin-bottom: 1.5rem;
 }
 
+.home-profile-link {
+  display: block;
+  width: fit-content;
+  border-radius: 6px;
+}
+
+.home-profile-link:focus-visible {
+  outline: 2px solid #0645ad;
+  outline-offset: 4px;
+}
+
 .home-profile-photo {
   display: block;
   width: 144px;
@@ -386,6 +397,36 @@ blockquote {
   width: min(100%, 20rem);
 }
 
+.video-preview-paragraph {
+  position: relative;
+}
+
+.video-preview-paragraph .inline-preview-image {
+  text-decoration: none;
+}
+
+.video-preview-caption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.2rem 0.45rem;
+  padding: 0.6rem 0.75rem;
+  background: #fff;
+  color: #666;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.video-preview-caption > span,
+.video-preview-caption > time {
+  white-space: nowrap;
+}
+
+.video-preview-caption > :not(:first-child)::before {
+  content: "·";
+  margin-right: 0.45rem;
+}
+
 @media (min-width: 821px) and (hover: hover) and (pointer: fine) {
   .bio-story {
     display: inline-block;
@@ -400,8 +441,20 @@ blockquote {
     display: contents;
   }
 
-  .bio-story-card {
+  .bio-story-card,
+  .inline-preview-card {
     display: block;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(7px);
+    transition:
+      opacity 140ms ease,
+      transform 180ms cubic-bezier(0.22, 1, 0.36, 1),
+      visibility 0s linear 180ms;
+  }
+
+  .bio-story-card {
     position: absolute;
     z-index: 10;
     top: 100%;
@@ -411,14 +464,6 @@ blockquote {
     margin: 0;
     overflow-y: auto;
     box-shadow: 0 14px 36px rgba(0, 0, 0, 0.16);
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transform: translateY(7px);
-    transition:
-      opacity 140ms ease,
-      transform 180ms cubic-bezier(0.22, 1, 0.36, 1),
-      visibility 0s linear 180ms;
   }
 
   .bio-story-card-caption-side,
@@ -449,7 +494,10 @@ blockquote {
   }
 
   .bio-story:hover > .bio-story-card,
-  .bio-story.is-open > .bio-story-card {
+  .bio-story.is-open > .bio-story-card,
+  .inline-preview:hover > .inline-preview-card,
+  .inline-preview:focus-within > .inline-preview-card,
+  .inline-preview.is-open > .inline-preview-card {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
@@ -487,17 +535,43 @@ blockquote {
     left: auto;
   }
 
-  .inline-preview:hover > .inline-preview-card,
-  .inline-preview:focus-within > .inline-preview-card {
-    display: block;
+  .video-preview-paragraph .inline-preview {
+    display: contents;
   }
+
+  .video-preview-paragraph .inline-preview-card {
+    width: min(26rem, 100%);
+  }
+
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .bio-story-card {
+  .bio-story-card,
+  .inline-preview-card {
     transition: none;
     transform: none;
   }
+}
+
+.photo-gallery {
+  columns: 2;
+  column-gap: 1rem;
+}
+
+.photo {
+  width: 100%;
+  margin: 0 0 1rem;
+  break-inside: avoid;
+}
+
+.photo a,
+.photo img {
+  display: block;
+}
+
+.photo img {
+  width: 100%;
+  height: auto;
 }
 
 .post-embed {
@@ -599,6 +673,127 @@ blockquote {
 .essay-list {
   padding: 0;
   list-style: none;
+}
+
+github-activity {
+  display: block;
+  min-width: 0;
+  max-width: 100%;
+  margin: 1.5rem 0 2rem;
+  container-type: inline-size;
+  font-variant-numeric: tabular-nums;
+}
+
+.github-activity-header,
+.github-activity-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+}
+
+.github-activity-header p,
+.github-activity-footer p {
+  min-width: 0;
+  margin: 0;
+}
+
+.github-contribution-total,
+.github-profile,
+.github-stats,
+.github-activity-footer {
+  font-size: 1rem;
+}
+
+.github-contribution-total strong {
+  font-weight: 600;
+}
+
+.github-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  margin: 0.35rem 0 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.github-stats li {
+  margin: 0;
+  white-space: nowrap;
+}
+
+.github-stats a {
+  color: #666;
+  text-decoration: none;
+}
+
+.github-stats a:hover {
+  color: #222;
+  text-decoration: underline;
+}
+
+.github-calendar-scroll {
+  width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  padding-bottom: 0.4rem;
+}
+
+.github-calendar-scroll:focus-visible {
+  outline: 2px solid #0645ad;
+  outline-offset: 3px;
+}
+
+.github-calendar {
+  display: block;
+  width: 100%;
+  min-width: 640px;
+  height: auto;
+}
+
+.github-calendar-label {
+  fill: #666;
+  font-size: 0.59rem;
+  font-family: inherit;
+}
+
+.github-calendar-day,
+.github-calendar-swatch {
+  fill: var(--contribution-color);
+  background-color: var(--contribution-color);
+}
+
+github-activity [data-level="0"] { --contribution-color: #ebedf0; }
+github-activity [data-level="1"] { --contribution-color: #9be9a8; }
+github-activity [data-level="2"] { --contribution-color: #40c463; }
+github-activity [data-level="3"] { --contribution-color: #30a14e; }
+github-activity [data-level="4"] { --contribution-color: #216e39; }
+
+.github-activity-footer {
+  color: #666;
+}
+
+.github-calendar-legend {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.github-calendar-swatch {
+  flex-shrink: 0;
+  width: 9px;
+  height: 9px;
+  border-radius: 2px;
+}
+
+@container (min-width: 560px) {
+  .github-profile,
+  .github-stats,
+  .github-activity-footer {
+    font-size: 0.85rem;
+  }
 }
 
 .essay-list li {
@@ -709,6 +904,10 @@ footer {
 }
 
 @media (max-width: 820px) {
+  .photo-gallery {
+    columns: 1;
+  }
+
   .tweet-collage {
     column-count: 1;
   }

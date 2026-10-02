@@ -5,7 +5,7 @@ const root = process.cwd();
 const output = join(root, "dist", "server");
 const sourceFiles = [
   ...readdirSync(root).filter((file) =>
-    file.endsWith(".html") || file.endsWith(".jpg") || file.endsWith(".png") || file === "styles.css" || file === "site-navigation.js"
+    file.endsWith(".html") || file.endsWith(".jpg") || file.endsWith(".png") || file === "styles.css" || file === "site-navigation.js" || file === "github-activity.js" || file === "github-activity.json"
   ),
   "airchat/index.html",
   "angel/index.html",
@@ -13,6 +13,7 @@ const sourceFiles = [
   "essays/index.html",
   "extraordinary/index.html",
   "favorites/index.html",
+  "photos/index.html",
   "projects/index.html",
   "videos/index.html",
 ];
@@ -22,6 +23,7 @@ const mimeTypes = {
   ".html": "text/html; charset=utf-8",
   ".jpg": "image/jpeg",
   ".js": "text/javascript; charset=utf-8",
+  ".json": "application/json; charset=utf-8",
   ".png": "image/png",
 };
 
@@ -54,6 +56,8 @@ assets["/extraordinary"] = assets["/extraordinary/index.html"];
 assets["/extraordinary/"] = assets["/extraordinary/index.html"];
 assets["/favorites"] = assets["/favorites/index.html"];
 assets["/favorites/"] = assets["/favorites/index.html"];
+assets["/photos"] = assets["/photos/index.html"];
+assets["/photos/"] = assets["/photos/index.html"];
 assets["/projects"] = assets["/projects/index.html"];
 assets["/projects/"] = assets["/projects/index.html"];
 assets["/videos"] = assets["/videos/index.html"];
