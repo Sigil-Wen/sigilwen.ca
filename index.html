@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Sigil Wen is an AI researcher, engineer, founder, and angel investor.">
   <link rel="canonical" href="https://sigilwen.ca/">
-  <link rel="stylesheet" href="/styles.css?v=5">
+  <link rel="stylesheet" href="/styles.css?v=6">
   <script src="/site-navigation.js" defer></script>
 
   <meta property="og:title" content="Sigil Wen">
@@ -43,15 +43,15 @@
       <div class="bio-story-shell bio-story-shell-prose">
         <div class="bio-story bio-story-prose" data-bio-story>
           <button class="bio-story-trigger bio-story-prose-trigger" type="button" aria-expanded="false" aria-controls="midjourney-story-card">At 17, I flew from Toronto to SF and slept out of the 44 Montgomery WeWork until David Holz took me in. He showed me the image models he was training and invited me to a Discord server with 20 people. That became Midjourney, which now has 20 million members.</button>
-          <figure class="bio-story-card" id="midjourney-story-card">
+          <figure class="bio-story-card bio-story-card-caption-side" id="midjourney-story-card">
             <a class="bio-story-image" href="/midjourney-discord-2021.png" target="_blank" rel="noopener noreferrer" aria-label="Open the Midjourney Discord screenshot at full size">
               <img src="/midjourney-discord-2021.png" alt="Discord conversation from August 2021 in which David Holz shows Sigil Wen an early AI-generated cyberpunk wizard image" width="1040" height="1400" loading="lazy" decoding="async">
             </a>
-            <figcaption><time datetime="2021-08-27">August 27, 2021</time> — David Holz showed me the first version of the Midjourney image-generation model he’d trained. I couldn’t believe one person could go after OpenAI’s DALL·E.</figcaption>
+            <figcaption><time datetime="2021-08-27">August 27, 2021</time> <span>David Holz showed me the first version of the Midjourney image-generation model he’d trained. I couldn’t believe one person could go after OpenAI’s DALL·E.</span></figcaption>
           </figure>
         </div>
       </div>
-      <p class="bio-story-paragraph">For 11 months, I lived in a hacker house alongside builders like Andrej Karpathy. It was a magical time: I was 18 and spent weekends hacking with the founders of Anthropic, Perplexity, Replicate, RunPod, DALL·E, Whisper, GPT-3, and Stable Diffusion. <span class="bio-story bio-story-inline-prose" data-bio-story><span class="bio-story-trigger bio-story-prose-trigger bio-story-inline-trigger" role="button" tabindex="0" aria-expanded="false" aria-controls="claude-slackbot-story-card">Ben Mann came over to our house to hack and invited me to beta-test a Slackbot as one of its first few users. That became Claude, which launched publicly in <span class="bio-story-inline-ending">2023.<span class="bio-story-inline-indicator" aria-hidden="true"></span></span></span><span class="bio-story-card bio-story-card-wide" id="claude-slackbot-story-card">
+      <p class="bio-story-paragraph">For 11 months, I lived in a hacker house alongside builders like <span class="inline-preview inline-preview-align-right" data-inline-preview><a class="inline-preview-trigger" href="/andrej-karpathy-sublease-2022.png?v=2" target="_blank" rel="noopener noreferrer" aria-expanded="false" aria-controls="andrej-karpathy-preview">Andrej Karpathy</a><span class="inline-preview-card inline-preview-card-wide" id="andrej-karpathy-preview"><a class="inline-preview-image" href="/andrej-karpathy-sublease-2022.png?v=2" target="_blank" rel="noopener noreferrer" aria-label="Open the sublease agreement excerpt at full size"><img src="/andrej-karpathy-sublease-2022.png?v=2" alt="Sublease agreement excerpt dated March 21, 2022, naming Andrej Karpathy as tenant and Sigil Wen as subtenant" width="2458" height="702" loading="lazy" decoding="async"></a></span></span>. It was a magical time: I was 18 and spent weekends hacking with the founders of Anthropic, Perplexity, Replicate, RunPod, DALL·E, Whisper, GPT-3, and Stable Diffusion. <span class="bio-story bio-story-inline-prose" data-bio-story><span class="bio-story-trigger bio-story-prose-trigger bio-story-inline-trigger" role="button" tabindex="0" aria-expanded="false" aria-controls="claude-slackbot-story-card">Ben Mann came over to our house to hack and invited me to beta-test a Slackbot as one of its first few users. That became Claude, which launched publicly in <span class="bio-story-inline-ending">2023.<span class="bio-story-inline-indicator" aria-hidden="true"></span></span></span><span class="bio-story-card bio-story-card-wide" id="claude-slackbot-story-card">
         <a class="bio-story-image" href="/claude-slackbot-invite-2022.png" target="_blank" rel="noopener noreferrer" aria-label="Open the Slackbot invitation screenshot at full size">
           <img src="/claude-slackbot-invite-2022.png" alt="Slack invitation from Ben Mann to Anthropic’s Claude demo channel in September 2022" width="1346" height="1144" loading="lazy" decoding="async">
         </a>
@@ -96,6 +96,11 @@
       <p>I’ve made videos with millions of views across the internet, covering everything from building a rock-climbing wall in my garage to earning an O-1 visa and interviewing a high-school dropout who became an OpenAI researcher.</p>
     </section>
 
+    <section id="origins">
+      <h2>Origins</h2>
+      <p>I spawned in Toronto, Canada in late 2003. I grew up with immigrant parents who worked hard to give me the opportunity to have an education. I am immensely grateful and consider myself extremely lucky. I also believe luck is in your control : ) "how to get lucky (without getting lucky)" lol that's a topic for another day</p>
+    </section>
+
   </main>
 
   <footer>
@@ -126,20 +131,38 @@
     }
 
     bioStories.forEach((bioStory) => {
-      bioStory.trigger.addEventListener("click", () => {
+      let pointerActivation = false;
+
+      const toggleBioStory = () => {
         const expanded = bioStory.trigger.getAttribute("aria-expanded") === "true";
         bioStories.forEach((item) => setBioStoryExpanded(item, false));
         inlinePreviews.forEach((item) => setInlinePreviewExpanded(item, false));
         setBioStoryExpanded(bioStory, !expanded);
+      };
+
+      bioStory.trigger.addEventListener("pointerdown", () => {
+        pointerActivation = true;
       });
 
-      if (bioStory.trigger.tagName !== "BUTTON") {
-        bioStory.trigger.addEventListener("keydown", (event) => {
-          if (event.key !== "Enter" && event.key !== " ") return;
-          event.preventDefault();
-          bioStory.trigger.click();
-        });
-      }
+      bioStory.trigger.addEventListener("click", () => {
+        const activatedWithPointer = pointerActivation;
+        pointerActivation = false;
+
+        if (!touchPreviewMedia.matches && activatedWithPointer) {
+          setBioStoryExpanded(bioStory, false);
+          bioStory.trigger.blur();
+          return;
+        }
+
+        toggleBioStory();
+      });
+
+      bioStory.trigger.addEventListener("keydown", (event) => {
+        if (event.key !== "Enter" && event.key !== " ") return;
+        event.preventDefault();
+        pointerActivation = false;
+        toggleBioStory();
+      });
     });
 
     inlinePreviews.forEach((inlinePreview) => {
