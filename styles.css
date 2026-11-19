@@ -588,6 +588,32 @@ blockquote {
   line-height: 1.45;
 }
 
+.press-figure {
+  width: min(100%, 32rem);
+  margin: 0 0 1.25rem;
+}
+
+.press-figure a {
+  display: block;
+  overflow: hidden;
+  border: 1px solid #ddd;
+}
+
+.press-figure a:hover {
+  border-color: #999;
+}
+
+.press-figure a:focus-visible {
+  outline: 2px solid #0645ad;
+  outline-offset: 4px;
+}
+
+.press-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .tweet-collage {
   column-count: 2;
   column-gap: 20px;
